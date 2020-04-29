@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeAddServiceField, addService } from '../actions/actionCreators.js';
+import { changeAddServiceField, addService } from '../actions/actionCreators';
 
 export default function ServiceAdd(props) {
   const { item, loading, error } = useSelector((state) => state.serviceAdd);

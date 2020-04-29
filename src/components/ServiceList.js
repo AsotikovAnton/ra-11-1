@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeService, fetchService } from '../actions/actionCreators';
 import ServiceAdd from './ServiceAdd';
+import { EditFilled, DeleteFilled } from '@ant-design/icons';
 
 function ServiceList(props) {
   const { match, history} = props;
@@ -45,8 +46,8 @@ function ServiceList(props) {
       <ul>
         {items && items.map((o) => <li key={o.id}>
           {o.name} {o.price}
-          <button className="material-icons" onClick={() => handleChange(o.id)}>create</button>
-          <button className="material-icons" onClick={() => handleRemove(o.id)} disabled={isLoading}>clear</button>
+          <EditFilled className="button btn" onClick={() => handleChange(o.id)} />
+          <DeleteFilled className="button" onClick={() => handleRemove(o.id)} disabled={isLoading}/>
         </li>)}
       </ul>
     </>
