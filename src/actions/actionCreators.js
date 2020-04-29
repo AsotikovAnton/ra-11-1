@@ -111,6 +111,7 @@ export const addService = async(dispatch, name, price) => {
 export const changeService = async (dispatch, id, name, price, content, goBack) => {
   dispatch(changeServiceRequest());
   try {
+    // eslint-disable-next-line no-unused-vars
     const resp = await fetch(process.env.REACT_APP_LOCAL_URL, {
       method: 'POST',
       headers: {
