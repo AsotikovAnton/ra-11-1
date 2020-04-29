@@ -1,26 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import ServiceList from './components/ServiceList';
+import ServiceChange from './components/ServiceChange';
 
-function App() {
+export default function App(props) {
+  const url = window.location.pathname;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Switch>
+          <Route path={`${url}services/:id`} component={ServiceChange} />
+          <Route path={`${url}services`} component={ServiceList} />
+          <Redirect exact from={`${url}`} to={`${url}services`} />
+        </Switch>
+      </Router>
+    </>
   );
 }
-
-export default App;
